@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ミツバ株式会社 企業VP提案</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap');
+    
+    :root {
+      --color1: #593C47;
+      --color2: #F2E63D;
+      --color3: #F2C53D;
+      --color4: #F25C05;
+      --color5: #F24405;
+    }
+    
+    body {
+      font-family: 'Zen Kurenaido', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f8f9fa;
+      color: #334155;
+      line-height: 1.4;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--color1), var(--color5));
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    h1 {
+      margin: 0;
+      font-family: 'Kaisei Decol', serif;
+      font-size: 32px;
+      background: linear-gradient(90deg, white, #f8f9fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .date {
+      font-family: 'Yomogi', cursive;
+      color: white;
+      font-size: 14px;
+    }
+    
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+    
+    .column {
+      width: 33%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    
+    @media (max-width: 768px) {
+      .column {
+        width: 100%;
+      }
+    }
+    
+    .card {
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      border: 2px solid #f0f0f0;
+    }
+    
+    h2 {
+      font-size: 18px;
+      color: #1e40af;
+      margin-top: 0;
+      padding-bottom: 5px;
+      border-bottom: 2px dashed var(--color3);
+      display: flex;
+      align-items: center;
+    }
+    
+    h2 svg {
+      margin-right: 8px;
+    }
+    
+    .key-point {
+      background-color: #fffdf0;
+      border-left: 4px solid var(--color3);
+      padding: 10px;
+      margin: 10px 0;
+    }
+    
+    .highlight {
+      background: linear-gradient(transparent 60%, var(--color2) 60%);
+      font-weight: bold;
+    }
+    
+    .hand-drawn-box {
+      border: 2px solid var(--color1);
+      border-radius: 15px;
+      padding: 10px;
+      position: relative;
+      margin: 15px 0;
+    }
+    
+    .hand-drawn-box::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: 20px;
+      width: 50px;
+      height: 10px;
+      background-color: white;
+    }
+    
+    .hand-drawn-box-title {
+      position: absolute;
+      top: -10px;
+      left: 25px;
+      font-weight: bold;
+      color: var(--color1);
+      font-size: 16px;
+      background-color: white;
+      padding: 0 5px;
+    }
+    
+    .arrow {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+    }
+    
+    .arrow-line {
+      flex-grow: 1;
+      height: 2px;
+      background-color: var(--color4);
+      position: relative;
+    }
+    
+    .arrow-head {
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 10px solid var(--color4);
+    }
+    
+    .timeline {
+      position: relative;
+      margin: 20px 0;
+      padding-left: 20px;
+    }
+    
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(var(--color3), var(--color5));
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 15px;
+      padding-left: 20px;
+    }
+    
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--color4);
+    }
+    
+    .timeline-year {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: var(--color1);
+    }
+    
+    .bubble {
+      position: relative;
+      background-color: #f0f4ff;
+      border-radius: 20px;
+      padding: 10px 15px;
+      margin: 15px 0;
+    }
+    
+    .bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 20px;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #f0f4ff;
+    }
+    
+    .footer {
+      background-color: #f0f0f0;
+      padding: 15px;
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .connector {
+      position: absolute;
+      width: 50px;
+      height: 2px;
+      background-color: var(--color3);
+      transform: rotate(-45deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>思い出のそばにはいつも、ミツバ。</h1>
+      <div class="date">提案資料：ミツバ株式会社 企業VP（歴史編）制作のご提案</div>
+    </header>
+    
+    <div class="content">
+      <div class="column">
+        <div class="card">
+          <h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 5H21M3 12H21M3 19H21" stroke="#1e40af" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            プロジェクト概要
+          </h2>
+          <div class="hand-drawn-box">
+            <div class="hand-drawn-box-title">目的 🎯</div>
+            <ul>
+              <li>投資促進（特に40～50代個人投資家）</li>
+              <li>採用活動（新卒・中途）</li>
+              <li>社員エンゲージメント向上</li>
+            </ul>
+          </div>
+          
+          <div class="hand-drawn-box">
+            <div class="hand-drawn-box-title">テーマ 🔍</div>
+            <ul>
+              <li>企業の歴史・生い立ち</li>
+              <li>技術力</li>
+              <li>未来へのビジョン</li>
+            </ul>
+          </div>
+          
+          <div class="key-point">
+            <strong>⚠️ 重要留意点：</strong> 特定製品・搭載車種の具体的露出NG（技術の提供価値にフォーカス）
+          </div>
+        </div>
+        
+        <div class="card">
+          <h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z" stroke="#F2C53D" stroke-width="2"/>
+              <path d="M12 2V4M12 20V22M4 12H2M6.3 6.3L4.9 4.9M17.7 6.3L19.1 4.9M6.3 17.7L4.9 19.1M17.7 17.7L19.1 19.1M22 12H20" stroke="#F25C05" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            ご提案の核心
+          </h2>
+          <div class="bubble">
+            <strong>タイトル：「思い出のそばにはいつも、ミツバ。」</strong>
+          </div>
+          <p>ミツバ様の歴史を<span class="highlight">単なる年表ではなく</span>、技術が各時代の人々の日常に寄り添い、「喜びと安心」の瞬間を紡いできた<span class="highlight">感動的なドラマ</span>として描きます。</p>
+          
+          <div class="key-point">
+            目指すのは、視聴者の<strong>感情を揺さぶり</strong>、<strong>深い共感</strong>と<strong>エンゲージメント</strong>を生み、<strong>記憶に残る</strong>企業VPです。
+          </div>
+        </div>
+      </div>
+      
+      <div class="column">
+        <div class="card">
+          <h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 4H18C18.5304 4 19.0391 4.21071 19.4142 4.58579C19.7893 4.96086 20 5.46957 20 6V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H6C5.46957 22 4.96086 21.7893 4.58579 21.4142C4.21071 21.0391 4 20.5304 4 20V6C4 5.46957 4.21071 4.96086 4.58579 4.58579C4.96086 4.21071 5.46957 4 6 4H8" stroke="#593C47" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15 2H9C8.44772 2 8 2.44772 8 3V5C8 5.55228 8.44772 6 9 6H15C15.5523 6 16 5.55228 16 5V3C16 2.44772 15.5523 2 15 2Z" stroke="#F25C05" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 10H16M8 14H16M8 18H12" stroke="#593C47" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            表現手法
+          </h2>
+          <div class="hand-drawn-box">
+            <div class="hand-drawn-box-title">映像表現 🎬</div>
+            <p>このエモーショナルな物語を、<span class="highlight">最新AI技術による「シネマティック・リアリズム」</span>で表現。低コストながら、実写映画に迫る高品質な映像で、ミツバ様の先進性と魅力を最大化します。</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 8V16M8 12H16" stroke="#F25C05" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="9" stroke="#593C47" stroke-width="2"/>
+            </svg>
+            あらすじ
+          </h2>
+          <div class="bubble">
+            物語は、<span class="highlight">創業者の熱意が灯した小さな光</span>から始まります。
+          </div>
+          
+          <div class="arrow">
+            <div class="arrow-line"></div>
+            <div class="arrow-head"></div>
+          </div>
+          
+          <p>それは時代を経て、<span class="highlight">80年代の若者の冒険を照らし</span>、</p>
+          
+          <div class="arrow">
+            <div class="arrow-line"></div>
+            <div class="arrow-head"></div>
+          </div>
+          
+          <p><span class="highlight">現代の家族の笑顔を支え</span>、</p>
+          
+          <div class="arrow">
+            <div class="arrow-line"></div>
+            <div class="arrow-head"></div>
+          </div>
+          
+          <p>そして<span class="highlight">未来の安心な移動へと繋がって</span>いく――。</p>
+          
+          <div class="key-point">
+            過去から現在、そして未来へと、ミツバ様の技術と想いが一本の線で結ばれ、進化していく感動の軌跡にご期待ください。
+          </div>
+        </div>
+        
+        <div class="card">
+          <h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 5.5C5 4.11929 6.11929 3 7.5 3C8.88071 3 10 4.11929 10 5.5C10 6.88071 8.88071 8 7.5 8C6.11929 8 5 6.88071 5 5.5Z" stroke="#F2C53D" stroke-width="2"/>
+              <path d="M14 5.5C14 4.11929 15.1193 3 16.5 3C17.8807 3 19 4.11929 19 5.5C19 6.88071 17.8807 8 16.5 8C15.1193 8 14 6.88071 14 5.5Z" stroke="#F25C05" stroke-width="2"/>
+              <path d="M5 18.5C5 17.1193 6.11929 16 7.5 16C8.88071 16 10 17.1193 10 18.5C10 19.8807 8.88071 21 7.5 21C6.11929 21 5 19.8807 5 18.5Z" stroke="#F25C05" stroke-width="2"/>
+              <path d="M14 18.5C14 17.1193 15.1193 16 16.5 16C17.8807 16 19 17.1193 19 18.5C19 19.8807 17.8807 21 16.5 21C15.1193 21 14 19.8807 14 18.5Z" stroke="#F2C53D" stroke-width="2"/>
+              <path d="M7.5 8V16M16.5 8V16M10 5.5H14M10 18.5H14" stroke="#593C47" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            AIによる「シネマティック・リアリズム」
+          </h2>
+          <div class="hand-drawn-box">
+            <div class="hand-drawn-box-title">なぜAIか？ 🤔</div>
+            <p>ご予算内で最大限の「シネマティック＝映画のような」品質を実現し、実写では困難または高コストな時代設定や未来描写、抽象表現を可能にするためです。</p>
+          </div>
+          
+          <div class="hand-drawn-box">
+            <div class="hand-drawn-box-title">メリット ✅</div>
+            <ul>
+              <li><strong>コスト効率</strong>：キャスティング、衣装、美術、CG等の費用を大幅に削減</li>
+              <li><strong>表現力</strong>：特定製品を避けつつ「技術の恩恵」を描写可能</li>
+              <li><strong>スピード</strong>：短納期に対応可能な迅速な映像生成</li>
+              <li><strong>クオリティ</strong>：最新AIは従来の「AIっぽさ」を感じさせない、自然で高品質な実写風映像の生成が可能</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="column">
+        <div class="card">
+          <h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 4H18C18.5304 4 19.0391 4.21071 19.4142 4.58579C19.7893 4.96086 20 5.46957 20 6V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H6C5.46957 22 4.96086 21.7893 4.58579 21.4142C4.21071 21.0391 4 20.5304 4 20V6C4 5.46957 4.21071 4.96086 4.58579 4.58579C4.96086 4.21071 5.46957 4 6 4H8" stroke="#593C47" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15 2H9C8.44772 2 8 2.44772 8 3V5C8 5.55228 8.44772 6 9 6H15C15.5523 6 16 5.55228 16 5V3C16 2.44772 15.5523 2 15 2Z" stroke="#F25C05" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 10H16M8 14H16M8 18H12" stroke="#593C47" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            シナリオ構成案
+          </h2>
+          <p>コンセプトに基づき、<span class="highlight">ドラマ性を高め</span>、メッセージを効果的に伝える全8パート構成。</p>
+          
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">【導入】 1940年代</div>
+              <p>創業の志：社会貢献への熱意とものづくりの原点 🏭</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">【成長】 1980年代</div>
+              <p>ユーザー体験①：自転車ランプが支えた若者の「安心」 🚲</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">【進化】 2000年代</div>
+              <p>ユーザー体験②：リモコンエンジンスターターによる「快適」と「安心」 🔑</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">【発展】 2020年代</div>
+              <p>ユーザー体験③：パワースライドドアがもたらす家族の「喜び」と「優しさ」 👨‍👩‍👧‍👦</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">【未来】</div>
+              <p>未来のモビリティ体験：自動運転が拓く世代を超えた「安全」と「繋がり」 🚗</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">【核心】</div>
+              <p>ミツバの技術と人材：コア技術の先進性とそれを支える社員の情熱 💡</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">【結び】</div>
+              <p>未来への決意表明：イノベーションと社会貢献への意志を象徴的に描き、ブランドで締めくくる ✨</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 8V16L12 12L8 16V8" stroke="#593C47" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="9" stroke="#F25C05" stroke-width="2"/>
+            </svg>
+            期待される効果
+          </h2>
+          <div class="hand-drawn-box">
+            <div class="hand-drawn-box-title">投資家に対して 💹</div>
+            <p>企業の信頼性、技術力、成長性を情感豊かに伝え、投資意欲を喚起</p>
+          </div>
+          
+          <div class="hand-drawn-box">
+            <div class="hand-drawn-box-title">求職者に対して 🧑‍💼</div>
+            <p>社会貢献性や未来志向、働く魅力を伝え、応募意欲を向上</p>
+          </div>
+          
+          <div class="hand-drawn-box">
+            <div class="hand-drawn-box-title">社員に対して 👥</div>
+            <p>企業の歴史と功績への誇りを醸成し、エンゲージメントを強化</p>
+          </div>
+          
+          <div class="hand-drawn-box">
+            <div class="hand-drawn-box-title">ブランドイメージ向上 ✨</div>
+            <p>「技術力」「信頼性」「未来志向」「人間味」といったポジティブなブランドイメージを確立</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      提案資料：ミツバ株式会社 企業VP（歴史編）制作のご提案
+    </div>
+  </div>
+</body>
+</html>
